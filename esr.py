@@ -1,3 +1,5 @@
+# Extractive Sentence Ranking
+
 import re
 import string
 from collections import Counter
@@ -53,9 +55,11 @@ def replace_newlines(text):
     text = re.sub(r"\n\s*([A-Z])", r". \1", text)
     return text
 
-def extract_sentences(file_path):
+def from_file(file_path):
     with open(file_path, "r") as f:
-        text = f.read()
+        return f.read()
+
+def extract_sentences(text):
             
     # Fix formatting issues
     text = replace_newlines(text)
@@ -96,11 +100,9 @@ def rank_sentences(sentences, query):
  
     return ranked_sentences
     
-query = input("Query: ")
-file_path = "lecture.txt"
-sentences = extract_sentences(file_path)
-result = format_sentences(rank_sentences(sentences, query)[:10])
-for sent in result:
-    print(sent)
-
-# return "\n\n".join(map(lambda s: s.strip(), top_sentences))
+# query = input("Query: ")
+# file_path = "lecture.txt"
+# sentences = extract_sentences(from_file(file_path))
+# result = format_sentences(rank_sentences(sentences, query)[:10])
+# for sent in result:
+#     print(sent.strip())
