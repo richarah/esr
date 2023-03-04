@@ -100,9 +100,10 @@ def rank_sentences(sentences, query):
  
     return ranked_sentences
     
-# query = input("Query: ")
-# file_path = "lecture.txt"
-# sentences = extract_sentences(from_file(file_path))
-# result = format_sentences(rank_sentences(sentences, query)[:10])
-# for sent in result:
-#     print(sent.strip())
+if __name__ == "__main__":
+    query = input("Query: ")
+    file_path = "test.txt"
+    sentences = extract_sentences(from_file(file_path))
+    result = format_sentences(rank_sentences(sentences, query)[:10])
+    for sent in result:
+        print(sent.strip())
